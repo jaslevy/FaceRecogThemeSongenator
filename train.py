@@ -36,7 +36,7 @@ for person_name in os.listdir(data_folder_path):
 clf = svm.SVC(gamma='scale', probability=True)
 clf.fit(embeddings, labels)
 
-# Save the SVM classifier (Optional)
+# Save the SVM classifier
 with open('face_model.pkl', 'wb') as f:
     pickle.dump(clf, f)
 

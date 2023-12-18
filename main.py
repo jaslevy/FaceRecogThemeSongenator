@@ -37,9 +37,11 @@ while True:
         confidence = 1 - probability[0][label[0]]  # Assuming that a higher probability corresponds to a more confident prediction
         print(label_dict[label[0]], confidence)
         
-        if confidence < 0.05 and not is_playing:  # Changed confidence threshold as per SVM probabilities
+        if confidence < 0.35 and not is_playing:  # Changed confidence threshold as per SVM probabilities
             person_name = label_dict[label[0]]
             m4a_file = f"music/{person_name}.m4a"
+            if is_playing == False:
+                os.system(f'say "hello {person_name}"')
                 
             if os.path.exists(m4a_file):
                 mp3_file = convert_to_mp3(m4a_file)
